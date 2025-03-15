@@ -38,6 +38,16 @@ translate([r1,0,0])
 circle(r=r2);
 }
 
+module seam_cut(r1,r2) {
+	intersection() {
+		scale([1/3,1,1])
+		rotate([0,90,0])
+		torus(bd/2,1);
+		translate([0,od,0]) cube(2*od,center=true);
+	}
+	translate([0,bd/2,0]) scale([1/3,1,1]) cylinder(r=1,h=od);
+}
+
 module ballcupend_base()
 difference() {
 	union() {
@@ -67,13 +77,7 @@ difference() {
 	cylinder(d=bd+0.8,h=2*od);
 
 	// cutout to place seam
-	intersection() {
-		scale([1/3,1,1])
-		rotate([0,90,0])
-		torus(bd/2,1);
-		translate([0,od,0]) cube(2*od,center=true);
-	}
-	translate([0,bd/2,0]) scale([1/3,1,1]) cylinder(r=1,h=od);
+	seam_cut(bd/2,1);
 
 	// cutout to avoid elephant foot contact
 	cylinder(d=bd/2,h=2*od,center=true);
