@@ -18,6 +18,9 @@ ao=10; // 0.1
 // Sleeve length over arm
 sl=20; // 0.1
 
+// Cutout slope offset
+cso=3.25; // 0.05
+
 // Lower coverage angle
 lca=55; // 0.1
 
@@ -72,13 +75,18 @@ difference() {
 	cylinder(d=bd/2,h=2*od,center=true);
 
 	// cutout for range of motion clearance
-	translate([0,-od/2+13/4,od/2]) cube(od,center=true);
-	translate([0,13/4,13])
-	scale([1,.7,1])
-	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
+	clearance_cut();
 
 	// hole for arm
 	armhole();
+}
+
+module clearance_cut() {
+	translate([0,-od+cso,od]) cube(2*od,center=true);
+	translate([0,cso,13])
+	scale([1,(ao-cso)/6.75,1])
+	scale([1,.7,1])
+	rotate([0,90,0]) cylinder(d=2*13,h=2*od,center=true);
 }
 
 module armhole() {
@@ -106,22 +114,22 @@ module armhole() {
 
 module spring_hook()
 difference() {
-	translate([0,15,sd/2-sd/11])
+	translate([0,ao+5,sd/2-sd/11])
 	hull() {
 		translate([0,0,-1]) cube([sd*cos(asin(9/11)),12,2],center=true);
 		translate([0,0,1.25]) cube([sd*cos(asin(9/11))*.5,4,2],center=true);
 	}
 
-	translate([0,15,sd/2-sd/11])
+	translate([0,ao+5,sd/2-sd/11])
 	scale([1,1,1])
 	translate([0,0,6/2])
 	rotate([90,0,0])
 	torus(6/2,0.8);
 
-	for (y=[13/4, 30-(13/4)])
-	translate([0,y,13])
-	scale([1,.7,1])
-	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
+	for (i=[0,1])
+	translate([0,2*(ao+5)*i,0])
+	mirror([0,i,0])
+	clearance_cut();
 
 	armhole();
 }
