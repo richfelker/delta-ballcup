@@ -73,6 +73,7 @@ difference() {
 		torus(bd/2,1);
 		translate([0,od,0]) cube(2*od,center=true);
 	}
+	translate([0,bd/2,0]) scale([1/3,1,1]) cylinder(r=1,h=od);
 
 	// cutout to avoid elephant foot contact
 	cylinder(d=bd/2,h=2*od,center=true);
