@@ -72,8 +72,8 @@ difference() {
 	cylinder(d=bd/2,h=2*od,center=true);
 
 	// cutout for range of motion clearance
-	translate([0,-od/2+bd*sqrt(2)/4,od/2]) cube(od,center=true);
-	translate([0,bd*sqrt(2)/4,13])
+	translate([0,-od/2+13/4,od/2]) cube(od,center=true);
+	translate([0,13/4,13])
 	scale([1,.7,1])
 	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
 
@@ -118,7 +118,7 @@ difference() {
 	rotate([90,0,0])
 	torus(6/2,0.8);
 
-	for (y=[bd*sqrt(2)/4, 30-(bd*sqrt(2)/4)])
+	for (y=[13/4, 30-(13/4)])
 	translate([0,y,13])
 	scale([1,.7,1])
 	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
