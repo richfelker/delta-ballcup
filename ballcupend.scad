@@ -38,14 +38,29 @@ translate([r1,0,0])
 circle(r=r2);
 }
 
+module seam_profile(r1,r2) {
+	translate([r1,0]) scale([1/2,1,1]) translate([r2*0.9,0]) {
+		circle(r=r2);
+		difference() {
+			translate([-r2,0]) square([2*r2,4*r2],center=true);
+			for (i=[-1,1])
+			translate([0,i*2*r2]) circle(r=r2);
+		}
+	}
+}
+
 module seam_cut(r1,r2) {
 	intersection() {
 		scale([1/3,1,1])
 		rotate([0,90,0])
-		torus(bd/2,1);
+		rotate_extrude() seam_profile(r1,r2);
 		translate([0,od,0]) cube(2*od,center=true);
 	}
-	translate([0,bd/2,0]) scale([1/3,1,1]) cylinder(r=1,h=od);
+	translate([0,0.4,-bd/8])
+	scale([1/3,1,1])
+	rotate(90)
+	linear_extrude(height=od,convexity=3)
+	seam_profile(r1,r2);
 }
 
 module ballcupend_base()
