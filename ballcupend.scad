@@ -43,8 +43,11 @@ difference() {
 	union() {
 		//sleeve shaft
 		translate([0,od/2,0])
-		rotate([-90,0,0])
-		cylinder(d=sd,h=ao+sl-od/2);
+		rotate([-90,0,0]) {
+			cylinder(d=sd,h=ao+sl-od/2-0.6);
+			translate([0,0,ao+sl-od/2-0.6])
+			cylinder(d1=sd,d2=sd-1.2,h=0.6);
+		}
 
 		//outer side of cup
 		hull() {
@@ -109,7 +112,9 @@ module armhole() {
 		translate([0,-ad/2,])
 		cube([2*od,ad,ad],center=true);
 	}
-
+	translate([0,ao+sl-0.6,0])
+	rotate([90,0,180])
+	cylinder(d1=ad,d2=ad+4,h=2);
 }
 
 module spring_hook()
