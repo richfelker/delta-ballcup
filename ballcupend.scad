@@ -43,7 +43,7 @@ difference() {
 		//outer side of cup
 		hull() {
 			sphere(d=od);
-			translate([0,od,0]) sphere(d=sd-2);
+			translate([0,13,0]) sphere(d=sd-2);
 		}
 	}
 
@@ -69,10 +69,10 @@ difference() {
 	cylinder(d=bd/2,h=2*od,center=true);
 
 	// cutout for range of motion clearance
-	translate([0,-od/4,od/2-bd/10*0]) cube(od,center=true);
-	translate([0,-od/4+od/2,od-bd/10*0])
+	translate([0,-od/2+bd*sqrt(2)/4,od/2]) cube(od,center=true);
+	translate([0,bd*sqrt(2)/4,13])
 	scale([1,.7,1])
-	rotate([0,90,0]) cylinder(d=2*od,h=100,center=true);
+	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
 
 	// hole for arm
 	armhole();
@@ -115,10 +115,10 @@ difference() {
 	rotate([90,0,0])
 	torus(6/2,0.8);
 
-	for (ex=[0,30-od/2])
-	translate([0,ex-od/4+od/2,od-bd/10*0])
+	for (y=[bd*sqrt(2)/4, 30-(bd*sqrt(2)/4)])
+	translate([0,y,13])
 	scale([1,.7,1])
-	rotate([0,90,0]) cylinder(d=2*od,h=100,center=true);
+	rotate([0,90,0]) cylinder(d=2*13,h=100,center=true);
 
 	armhole();
 }
