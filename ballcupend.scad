@@ -18,6 +18,9 @@ ao=10; // 0.1
 // Sleeve length over arm
 sl=20; // 0.1
 
+// Lower coverage angle
+lca=55; // 0.1
+
 // Joint angle (for visualization only)
 ja=-35; // 0.1
 
@@ -48,7 +51,7 @@ difference() {
 	}
 
 	// flat bottom/top
-	translate([0,0,-2*sd-sd/2+sd/11]) cube([200,200,4*sd],center=true);
+	translate([0,0,-2*sd-sd/2*sin(lca)]) cube([200,200,4*sd],center=true);
 	translate([0,0,+2*sd+sd/2-sd/11]) cube([200,200,4*sd],center=true);
 
 	// cup interior
