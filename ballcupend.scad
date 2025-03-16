@@ -175,5 +175,5 @@ union() {
 
 ballcupend();
 
-$fs=.2;
-$fa=5;
+$fs=.1;
+$fa=2;
