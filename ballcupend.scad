@@ -1,7 +1,7 @@
 // Ball cup style rod end for delta arm joints
 
 // Outer diameter of ball cup
-od=13; // 0.1
+od=15.6; // 0.1
 
 // Ball diameter with any clearance
 bd=9.58; // 0.01
@@ -19,7 +19,7 @@ ao=10; // 0.1
 sl=20; // 0.1
 
 // Cutout slope offset
-cso=3.25; // 0.05
+cso=-5; // 0.05
 
 // Lower coverage angle
 lca=55; // 0.1
