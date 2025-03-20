@@ -10,7 +10,7 @@ bd=9.58; // 0.01
 sd=11; // 0.1
 
 // Arm diameter
-ad=6; // 0.01
+ad=6.15; // 0.01
 
 // Arm offset from ball center
 ao=10; // 0.1
