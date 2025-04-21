@@ -132,9 +132,9 @@ module armhole() {
 		translate([0,-ad/2,])
 		cube([2*od,ad,ad],center=true);
 	}
-	translate([0,ao+sl-0.6,0])
+	translate([0,ao+sl-1.5,0])
 	rotate([90,0,180])
-	cylinder(d1=ad,d2=ad+4,h=2);
+	cylinder(d1=ad,d2=ad+2,h=2);
 }
 
 module spring_hook()
