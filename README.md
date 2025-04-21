@@ -6,9 +6,9 @@ robots or similar parallel mechanisms. It maintains a parallelogram
 configuration between a pair of arms using spring tension to hold the
 cups against precision-machined balls.
 
-To use these, you will need material for the arms, springs, and
-precision machined balls for the cups to interface with. In the
-default configuration, the cup is sized for [the barbells sold by
+To use these, you will need material for the arms, springs, and balls
+for the cups to interface with. In the default configuration, the cup
+is sized for [the barbells sold by
 SeeMeCNC](https://www.seemecnc.com/products/cnc-machined-ball-joint-kit),
 but it can be adjusted as needed. Recommended springs to go with these
 barbells (50 mm ball spacing) are 0.8 mm wire diameter by 6 mm coil
@@ -26,13 +26,13 @@ M45 delta printer.
 
 ## Printing information
 
-The ball cups should be printed with a thin layer height and 100%
-infill. Solid infill works better (gives more rigidity) in this case
-than increasing the number of perimeters until the part is solid. Seam
-should be placed (either manually or with "rear" or concealment
-settings) in the groove at the back of the cup, so that any print
-inaccuracies around the seam do not affect the mechanical interface
-with the ball.
+The ball cups should be printed with a thin layer height (0.1 mm
+recommended) and 100% infill. Solid infill works better (gives more
+rigidity) in this case than increasing the number of perimeters until
+the part is solid. Seam should be placed (either manually or with
+"rear" or concealment settings) in the groove at the back of the cup,
+so that any print inaccuracies around the seam do not affect the
+mechanical interface with the ball.
 
 Print material should be rigid and not subject to creep, since the
 ball cups will be under a continuous, strong spring force once
